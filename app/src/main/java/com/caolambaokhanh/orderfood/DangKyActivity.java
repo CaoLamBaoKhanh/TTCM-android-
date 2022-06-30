@@ -80,8 +80,8 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
         landautien = getIntent().getIntExtra("landautien",0);
 
         if(landautien == 0){
-//            quyenDAO.ThemQuyen("quản lý");
-//            quyenDAO.ThemQuyen("nhân viên");
+            quyenDAO.ThemQuyen("quản lý");
+            quyenDAO.ThemQuyen("nhân viên");
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,dataAdapter);
             spinQuyen.setAdapter(adapter);
