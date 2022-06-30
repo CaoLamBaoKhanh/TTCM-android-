@@ -1,7 +1,8 @@
 package com.caolambaokhanh.DTO;
 
 public class NhanVienDTO {
-    int MANV, CMND;
+    int MANV;
+    double CMND;
 
     public int getMAQUYEN() {
         return MAQUYEN;
@@ -34,7 +35,7 @@ public class NhanVienDTO {
         this.MANV = MANV;
     }
 
-    public int getCMND() {
+    public double getCMND() {
         return CMND;
     }
 
