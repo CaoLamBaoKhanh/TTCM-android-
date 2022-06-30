@@ -63,8 +63,8 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
 
         nhanVienDAO = new NhanVienDAO(this);
         quyenDAO = new QuyenDAO(this);
-        nhanVienDAO.ThemQuyen("quản lý");
-        nhanVienDAO.ThemQuyen("nhân viên");
+//        nhanVienDAO.ThemQuyen("quản lý");
+//        nhanVienDAO.ThemQuyen("nhân viên");
 
         quyenDTOList = quyenDAO.LayDanhSachQuyen();
         dataAdapter = new ArrayList<String>();
