@@ -2,7 +2,7 @@ package com.caolambaokhanh.DTO;
 
 public class NhanVienDTO {
     int MANV;
-    int CMND;
+    String CMND;
 
     public int getMAQUYEN() {
         return MAQUYEN;
@@ -35,11 +35,11 @@ public class NhanVienDTO {
         this.MANV = MANV;
     }
 
-    public int getCMND() {
+    public String getCMND() {
         return CMND;
     }
 
-    public void setCMND(int CMND) {
+    public void setCMND(String CMND) {
         this.CMND = CMND;
     }
 
