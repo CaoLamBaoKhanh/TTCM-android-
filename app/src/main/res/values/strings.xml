@@ -38,7 +38,7 @@
     <string name="sua">Sửa</string>
     <string name="xoa">Xóa</string>
     <string name="xoathanhcong">Xóa thành công !</string>
-    <string name="suathanhcong">Sửa thàng công !</string>
+    <string name="suathanhcong">Sửa thành công !</string>
     <string name="themnhanvien">Thêm nhân viên !</string>
     <string name="capnhatnhanvien">Cập nhật nhân viên</string>
 </resources>
