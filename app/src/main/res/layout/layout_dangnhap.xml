@@ -47,7 +47,7 @@
             android:drawableLeft="@drawable/user"
             android:drawablePadding="@dimen/size10dp"
             android:singleLine="true"
-            android:textColor="@color/colorGray"
+            android:textColor="@color/colorBlack"
             />
 
         <EditText
@@ -64,7 +64,7 @@
             android:drawableLeft="@drawable/password"
             android:drawablePadding="@dimen/size10dp"
             android:singleLine="true"
-            android:textColor="@color/colorGray"
+            android:textColor="@color/colorBlack"
             android:password="true"
             />
 
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:text="@string/dongy"
             android:padding="@dimen/size10dp"
-            android:background="@color/colorRed"
+            android:backgroundTint="@color/colorRed"
             android:layout_marginLeft="@dimen/size10dp"
             android:layout_marginRight="@dimen/size10dp"
             android:layout_marginBottom="@dimen/size10dp"
@@ -86,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dangky"
-            android:background="@color/colorPrimary"
+            android:backgroundTint="@color/colorPrimary"
             android:layout_marginLeft="@dimen/size10dp"
             android:layout_marginRight="@dimen/size10dp"
             android:padding="@dimen/size10dp"
