@@ -46,9 +46,9 @@ public class TrangChuActivity extends AppCompatActivity implements NavigationVie
         View view = navigationView.inflateHeaderView(R.layout.layout_header_navigation_trangchu);
         txtTenNhanVien_Navigation = (TextView) view.findViewById(R.id.txtTenNhanVienNavigation);
 
-//        setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
 //        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.mo,R.string.dong){
             @Override
