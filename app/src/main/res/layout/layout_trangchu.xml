@@ -32,7 +32,6 @@
         android:id="@+id/navigationview_trangchu"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:headerLayout="@layout/layout_header_navigation_trangchu"
         app:menu="@menu/menu_navigation"
         android:layout_gravity="start"
         android:background="@color/backgroundToolbar">
