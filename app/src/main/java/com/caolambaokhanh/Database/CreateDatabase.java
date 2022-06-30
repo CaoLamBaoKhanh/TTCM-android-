@@ -53,14 +53,14 @@ public class CreateDatabase extends SQLiteOpenHelper {
 
 
     public CreateDatabase(@Nullable Context context) {
-        super(context, "OrderFood", null, 1);
+        super(context, "OrderFood", null, 2);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String tbNHANVIEN = "create table "+ TB_NHANVIEN + "(" + TB_NHANVIEN_MANV + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 TB_NHANVIEN_TENDN + " TEXT," + TB_NHANVIEN_MATKHAU + " TEXT," + TB_NHANVIEN_GIOITINH + " TEXT, "+
-                TB_NHANVIEN_NGAYSINH + " TEXT, "+ TB_NHANVIEN_CMND  + " INTEGER , " + TB_NHANVIEN_MAQUYEN + " INTEGER )";
+                TB_NHANVIEN_NGAYSINH + " TEXT, "+ TB_NHANVIEN_CMND  + " REAL , " + TB_NHANVIEN_MAQUYEN + " INTEGER )";
 
         String tbBANAN = "CREATE TABLE "+ TB_BANAN + "("+ TB_BANAN_MABAN + " INTEGER PRIMARY KEY AUTOINCREMENT,"+
                 TB_BANAN_TENBAN + " TEXT," + TB_BANAN_TINHTRANG + " TEXT )";

@@ -24,6 +24,7 @@ import com.caolambaokhanh.DAO.NhanVienDAO;
 import com.caolambaokhanh.DTO.NhanVienDTO;
 import com.caolambaokhanh.orderfood.DangKyActivity;
 import com.caolambaokhanh.orderfood.R;
+import com.caolambaokhanh.orderfood.TrangChuActivity;
 
 import java.util.List;
 
@@ -42,6 +43,7 @@ public class HienThiNhanVienFragment extends Fragment {
         setHasOptionsMenu(true);
 
         listNhanVien = (ListView) view.findViewById(R.id.listNhanVien);
+        ((TrangChuActivity)getActivity()).getSupportActionBar().setTitle(R.string.nhanvien);
 
         nhanVienDAO = new NhanVienDAO(getActivity());
 

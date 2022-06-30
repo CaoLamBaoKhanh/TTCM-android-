@@ -38,7 +38,7 @@ public class NhanVienDTO {
         return CMND;
     }
 
-    public void setCMND(int CMND) {
+    public void setCMND(double CMND) {
         this.CMND = CMND;
     }
 
