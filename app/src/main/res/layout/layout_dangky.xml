@@ -120,7 +120,7 @@
             android:drawablePadding="@dimen/size10dp"
             android:textColor="@color/colorGray"
             android:numeric="integer"
-            android:maxLength="8"
+            android:maxLength="12"
             />
 
         <LinearLayout
@@ -137,7 +137,7 @@
                 android:layout_weight="1"
                 android:padding="@dimen/size10dp"
                 android:layout_margin="@dimen/size10dp"
-                android:background="@color/colorGreenButton"
+                android:backgroundTint="@color/colorGreenButton"
                 />
 
             <Button
@@ -148,7 +148,7 @@
                 android:layout_weight="1"
                 android:padding="@dimen/size10dp"
                 android:layout_margin="@dimen/size10dp"
-                android:background="@color/colorOrganButton"
+                android:backgroundTint="@color/colorOrganButton"
 
                 />
 
