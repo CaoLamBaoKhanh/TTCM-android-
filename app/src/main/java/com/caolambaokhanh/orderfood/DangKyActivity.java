@@ -126,7 +126,7 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
                 break;
         }
         String sNgaySinh = edNgaySinhDK.getText().toString();
-        int sCMND = Integer.parseInt(edCMNDDK.getText().toString());
+        String sCMND = edCMNDDK.getText().toString();
 
         if(sTenDangNhap == null || sTenDangNhap.equals("")){
             Toast.makeText(DangKyActivity.this,getResources().getString(R.string.loinhaptendangnhap), Toast.LENGTH_SHORT).show();
@@ -162,7 +162,7 @@ public class DangKyActivity extends AppCompatActivity implements View.OnClickLis
         String sTenDangNhap = edTenDangNhapDK.getText().toString();
         String sMatKhau = edMatKhauDK.getText().toString();
         String sNgaySinh = edNgaySinhDK.getText().toString();
-        int sCMND = Integer.parseInt(edCMNDDK.getText().toString());
+        String sCMND = edCMNDDK.getText().toString();
         switch (rgGioiTinh.getCheckedRadioButtonId()){
             case R.id.rdNam:
                 sGioiTinh = "Nam";
