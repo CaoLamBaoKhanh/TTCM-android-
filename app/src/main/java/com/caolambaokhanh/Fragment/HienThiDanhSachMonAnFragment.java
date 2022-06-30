@@ -3,8 +3,10 @@ package com.caolambaokhanh.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -30,6 +32,17 @@ public class HienThiDanhSachMonAnFragment extends Fragment {
     AdapterHienThiDanhSachMonAn adapterHienThiDanhSachMonAn;
     int maban;
 
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        return super.onContextItemSelected(item);
+    }
+
+    @Override
+    public void onCreateContextMenu(@NonNull ContextMenu menu, @NonNull View v, @Nullable ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getActivity().getMenuInflater().inflate(R.menu.edit_context_menu,menu);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +51,8 @@ public class HienThiDanhSachMonAnFragment extends Fragment {
         gridView = (GridView) view.findViewById(R.id.gvHIenThiThucDon);
 
         monAnDAO = new MonAnDAO(getActivity());
+        //dangky contextmenu
+        registerForContextMenu(gridView);
 
 
         Bundle bundle = getArguments();

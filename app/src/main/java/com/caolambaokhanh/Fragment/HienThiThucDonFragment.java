@@ -61,8 +61,6 @@ public class HienThiThucDonFragment extends Fragment {
         AdapterHienThiLoaiMonAnThucDon adapdater = new AdapterHienThiLoaiMonAnThucDon(getActivity(),R.layout.custom_layout_hienthiloaimonan,loaiMonAnDTOs);
         gridView.setAdapter(adapdater);
         adapdater.notifyDataSetChanged();
-        //dang ky contextmenu
-        registerForContextMenu(gridView);
 
         Bundle bDuLieuThucDon = getArguments();
         if(bDuLieuThucDon != null){
@@ -93,17 +91,7 @@ public class HienThiThucDonFragment extends Fragment {
 
         return view;
     }
-
-    @Override
-    public void onCreateContextMenu(@NonNull ContextMenu menu, @NonNull View v, @Nullable ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        getActivity().getMenuInflater().inflate(R.menu.edit_context_menu,menu);
-    }
-
-    @Override
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
-        return super.onContextItemSelected(item);
-    }
+    
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
