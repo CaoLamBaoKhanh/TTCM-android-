@@ -115,7 +115,10 @@ public class TrangChuActivity extends AppCompatActivity implements NavigationVie
                 item.setChecked(true);
                 drawerLayout.closeDrawers();
                 ;break;
-
+            case R.id.itDangxuat:
+                Intent iDangNhap = new Intent(this, DangNhapActivity.class);
+                startActivity(iDangNhap);
+                ;break;
         }
         return false;
     }

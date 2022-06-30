@@ -23,17 +23,17 @@
             >
 
         </item>
-        <item
-            android:id="@+id/itThongKe"
-            android:title="@string/thongke"
-            android:icon="@drawable/thongke"
-            >
+<!--        <item-->
+<!--            android:id="@+id/itThongKe"-->
+<!--            android:title="@string/thongke"-->
+<!--            android:icon="@drawable/thongke"-->
+<!--            >-->
 
-        </item>
+<!--        </item>-->
         <item
-            android:id="@+id/itCaiDat"
-            android:title="@string/caidat"
-            android:icon="@drawable/caidat"
+            android:id="@+id/itDangxuat"
+            android:title="@string/dangxuat"
+            android:icon="@drawable/exit_to_app"
             >
 
         </item>
