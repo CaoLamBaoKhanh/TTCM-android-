@@ -82,6 +82,7 @@ public class ThanhToanActivity extends AppCompatActivity implements View.OnClick
             case R.id.btnThanhToan:
                 boolean kiemtrabanan = banAnDAO.CapNhatLaiTinhTrangBan(maban,"false");
                 boolean kiemtragoimon = goiMonDAO.CapNhatTrangThaiGoiMonTheoMaBan(maban,"true");
+                Toast.makeText(this,getResources().getString(R.string.thanhtoanthanhcong) , Toast.LENGTH_SHORT).show();
                 if(kiemtrabanan && kiemtragoimon){
                     Toast.makeText(ThanhToanActivity.this,getResources().getString(R.string.thanhtoanthanhcong), Toast.LENGTH_SHORT);
                     HienThiThanhToan();
