@@ -59,5 +59,34 @@ public class MonAnDAO {
         return monAnDTOs;
 
     }
+    public boolean XoaMonAnTheoMa(int mamon){
 
+        long kiemtra = database.delete(CreateDatabase.TB_MONAN,
+                CreateDatabase.TB_MONAN_MAMON + " = " + mamon,null);
+        if(kiemtra != 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    @SuppressLint("Range")
+    public List<MonAnDTO> LayTatCaMonAn(){
+        List<MonAnDTO> monAnDTOList = new ArrayList<MonAnDTO>();
+        String truyvan = "select * from " + CreateDatabase.TB_MONAN;
+        Cursor cursor = database.rawQuery(truyvan,null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()){
+            MonAnDTO monAnDTO = new MonAnDTO();
+            monAnDTO.setMaMonAn(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TB_MONAN_MAMON)));
+            monAnDTO.setTenMonAn(cursor.getString(cursor.getColumnIndex(CreateDatabase.TB_MONAN_TENMONAN)));
+            monAnDTO.setGiaTien(cursor.getString(cursor.getColumnIndex(CreateDatabase.TB_MONAN_GIATIEN)));
+            monAnDTO.setHinhAnh(cursor.getString(cursor.getColumnIndex(CreateDatabase.TB_MONAN_HINHANH)));
+            monAnDTO.setMaLoai(cursor.getInt(cursor.getColumnIndex(CreateDatabase.TB_MONAN_MALOAI)));
+
+            monAnDTOList.add(monAnDTO);
+            cursor.moveToNext();
+        }
+        return monAnDTOList;
+    }
 }

@@ -134,6 +134,12 @@
             >
 
         </activity>
+        <activity android:name=".SuaMonAnActivity"
+            android:theme="@style/PopUpActivity"
+            >
+
+        </activity>
+
 
     </application>
 
