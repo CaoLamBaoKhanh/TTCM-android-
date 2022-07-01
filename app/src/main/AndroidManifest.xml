@@ -139,6 +139,12 @@
             >
 
         </activity>
+<!--        <activity android:name=""-->
+<!--            android:theme="@style/PopUpActivity"-->
+<!--            >-->
+
+<!--        </activity>-->
+
 
 
     </application>
