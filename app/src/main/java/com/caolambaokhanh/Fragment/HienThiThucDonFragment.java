@@ -1,5 +1,6 @@
 package com.caolambaokhanh.Fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,6 +27,7 @@ import com.caolambaokhanh.CustomAdapter.AdapterHienThiLoaiMonAnThucDon;
 import com.caolambaokhanh.DAO.LoaiMonAnDAO;
 import com.caolambaokhanh.DTO.LoaiMonAnDTO;
 import com.caolambaokhanh.orderfood.R;
+import com.caolambaokhanh.orderfood.SuaLoaiThucDonActivity;
 import com.caolambaokhanh.orderfood.ThemBanAnActivity;
 import com.caolambaokhanh.orderfood.ThemThucDonActivity;
 import com.caolambaokhanh.orderfood.TrangChuActivity;
@@ -40,6 +43,8 @@ public class HienThiThucDonFragment extends Fragment {
     int maban;
     int maquyen;
     SharedPreferences sharedPreferences;
+    AdapterHienThiLoaiMonAnThucDon adapterHienThiLoaiMonAnThucDon;
+    public static int REQUEST_CODE_SUA = 555;
 
     @Nullable
     @Override
@@ -57,6 +62,9 @@ public class HienThiThucDonFragment extends Fragment {
 
         sharedPreferences = getActivity().getSharedPreferences("luuquyen", Context.MODE_PRIVATE);
         maquyen = sharedPreferences.getInt("maquyen",0);
+        if(maquyen == 1){
+            registerForContextMenu(gridView);
+        }
 
         AdapterHienThiLoaiMonAnThucDon adapdater = new AdapterHienThiLoaiMonAnThucDon(getActivity(),R.layout.custom_layout_hienthiloaimonan,loaiMonAnDTOs);
         gridView.setAdapter(adapdater);
@@ -105,6 +113,64 @@ public class HienThiThucDonFragment extends Fragment {
     }
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQUEST_CODE_SUA){
+            if(resultCode == Activity.RESULT_OK){
+                Intent intent = data;
+                boolean kiemtra = intent.getBooleanExtra("kiemtra",false);
+                HienThiDanhSachLoaiMonAn();
+                if(kiemtra){
+                    Toast.makeText(getActivity(), getResources().getString(R.string.suathanhcong), Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getActivity(), getResources().getString(R.string.loi), Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        HienThiDanhSachLoaiMonAn();
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        //lay vi trí
+        AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        int vitri = menuInfo.position;
+        int maloai = loaiMonAnDTOs.get(vitri).getMaLoai();
+        switch (id){
+            case R.id.itSua:
+                Intent intent = new Intent(getActivity(), SuaLoaiThucDonActivity.class);
+                intent.putExtra("maloai",maloai);
+                startActivityForResult(intent,REQUEST_CODE_SUA);
+
+                ;break;
+            case R.id.itXoa:
+                boolean kiemtra = loaiMonAnDAO.XoaLoaiMonAnTheoMaLoai(maloai);
+                if(kiemtra){
+                    HienThiDanhSachLoaiMonAn();
+                    Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.xoathanhcong), Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.loi), Toast.LENGTH_SHORT).show();
+                }
+                ;break;
+        }
+        return super.onContextItemSelected(item);
+    }
+
+    @Override
+    public void onCreateContextMenu(@NonNull ContextMenu menu, @NonNull View v, @Nullable ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getActivity().getMenuInflater().inflate(R.menu.edit_context_menu,menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id){
@@ -113,7 +179,14 @@ public class HienThiThucDonFragment extends Fragment {
                 startActivity(iThemThucDon);
                 getActivity().overridePendingTransition(R.anim.hieuung_activity_vao,R.anim.hieuung_activity_ra);
                 ;break;
+
         }
         return super.onOptionsItemSelected(item);
+    }
+    public void HienThiDanhSachLoaiMonAn(){
+        loaiMonAnDTOs = loaiMonAnDAO.LayDanhSachLoaiMonAn();
+        adapterHienThiLoaiMonAnThucDon = new AdapterHienThiLoaiMonAnThucDon(getActivity(),R.layout.custom_layout_hienthiloaimonan,loaiMonAnDTOs);
+        gridView.setAdapter(adapterHienThiLoaiMonAnThucDon);
+        adapterHienThiLoaiMonAnThucDon.notifyDataSetChanged();
     }
 }

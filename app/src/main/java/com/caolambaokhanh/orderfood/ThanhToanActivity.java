@@ -76,6 +76,12 @@ public class ThanhToanActivity extends AppCompatActivity implements View.OnClick
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        HienThiThanhToan();
+    }
+
+    @Override
     public void onClick(View v) {
         int id = v.getId();
         switch (id){
@@ -85,6 +91,7 @@ public class ThanhToanActivity extends AppCompatActivity implements View.OnClick
                 Toast.makeText(this,getResources().getString(R.string.thanhtoanthanhcong) , Toast.LENGTH_SHORT).show();
                 if(kiemtrabanan && kiemtragoimon){
                     Toast.makeText(ThanhToanActivity.this,getResources().getString(R.string.thanhtoanthanhcong), Toast.LENGTH_SHORT);
+                    txtTongTien.setText("");
                     HienThiThanhToan();
                 }else{
                     Toast.makeText(ThanhToanActivity.this,getResources().getString(R.string.loi), Toast.LENGTH_SHORT);

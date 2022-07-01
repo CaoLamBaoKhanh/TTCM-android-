@@ -1,12 +1,16 @@
 package com.caolambaokhanh.Fragment;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +38,16 @@ public class HienThiDanhSachMonAnFragment extends Fragment {
     List<MonAnDTO> monAnDTOList;
     AdapterHienThiDanhSachMonAn adapterHienThiDanhSachMonAn;
     int maban;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        HienThiDanhSachMonAn();
+    }
+
     public static int REQUEST_CODE_SUA = 444;
+    int maquyen =0;
+    SharedPreferences sharedPreferences;
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -52,6 +65,11 @@ public class HienThiDanhSachMonAnFragment extends Fragment {
                 }
             }
         }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
@@ -96,9 +114,16 @@ public class HienThiDanhSachMonAnFragment extends Fragment {
         gridView = (GridView) view.findViewById(R.id.gvHIenThiThucDon);
 
         monAnDAO = new MonAnDAO(getActivity());
-        //dangky contextmenu
-        registerForContextMenu(gridView);
+
+
         HienThiDanhSachMonAn();
+        //set quyen
+        sharedPreferences = getActivity().getSharedPreferences("luuquyen", Context.MODE_PRIVATE);
+        maquyen = sharedPreferences.getInt("maquyen",0);
+        //dangky contextmenu
+        if(maquyen==1){
+            registerForContextMenu(gridView);
+        }
 
         Bundle bundle = getArguments();
         if(bundle !=  null){

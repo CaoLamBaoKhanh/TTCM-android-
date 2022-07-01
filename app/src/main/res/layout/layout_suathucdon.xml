@@ -13,7 +13,7 @@
         android:padding="@dimen/size10dp"
         android:layout_margin="@dimen/size10dp"
         android:textColor="@color/colorGray"
-        android:hint="@string/tenbanan"
+        android:hint="@string/tenloai"
         android:textColorHint="@color/colorGray"
         />
 

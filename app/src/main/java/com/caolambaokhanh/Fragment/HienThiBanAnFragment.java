@@ -103,6 +103,12 @@ public class HienThiBanAnFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        HienThiDanhSachBanAn();
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         if(maquyen == 1){

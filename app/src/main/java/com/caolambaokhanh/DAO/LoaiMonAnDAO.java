@@ -70,5 +70,25 @@ public class LoaiMonAnDAO {
         return hinhanh;
     }
 
+    public boolean XoaLoaiMonAnTheoMaLoai(int maloai){
+        long kiemtra = database.delete(CreateDatabase.TB_LOAIMONAN,
+                CreateDatabase.TB_LOAIMONAN_MALOAI + " = "+ maloai,null);
+        if(kiemtra != 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public boolean CapNhatLaiLoaiMonAn(int maloai,String tenloai){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(CreateDatabase.TB_LOAIMONAN_TENLOAI,tenloai);
 
+        long kiemtra = database.update(CreateDatabase.TB_LOAIMONAN,contentValues,CreateDatabase.TB_LOAIMONAN_MALOAI + " = '" + maloai + "'",null );
+
+        if(kiemtra !=0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

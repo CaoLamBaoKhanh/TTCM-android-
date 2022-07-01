@@ -36,6 +36,12 @@ public class HienThiNhanVienFragment extends Fragment {
     int maquyen;
     SharedPreferences sharedPreferences;
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        HienThiDanhSachNhanVien();
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
