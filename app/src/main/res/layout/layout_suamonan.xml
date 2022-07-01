@@ -4,26 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundToolbar">
-    <TextView
-        android:id="@+id/txtSuaTenMonAn"
+    <EditText
+        android:id="@+id/edSuaTenMonAn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
+        android:padding="@dimen/size10dp"
         android:layout_margin="@dimen/size10dp"
         android:textSize="@dimen/size18sp"
         android:hint="@string/tenmonan"
-        android:textColorHint="@color/colorGray"/>
-    <TextView
-        android:id="@+id/txtSuaGiaMonAn"
+        android:textColorHint="@color/colorGray"
+        android:textColor="@color/colorBlack"/>
+    <EditText
+        android:id="@+id/edSuaGiaMonAn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
+        android:padding="@dimen/size10dp"
         android:layout_margin="@dimen/size10dp"
         android:textSize="@dimen/size18sp"
         android:hint="@string/giatien"
-        android:textColorHint="@color/colorGray"/>
+        android:textColorHint="@color/colorGray"
+        android:textColor="@color/colorBlack"/>
     <Button
-        android:id="@+id/btnĐongYSuaMonAn"
+        android:id="@+id/btnDongYSuaMonAn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dongy"

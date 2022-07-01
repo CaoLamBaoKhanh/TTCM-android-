@@ -89,4 +89,17 @@ public class MonAnDAO {
         }
         return monAnDTOList;
     }
+    public boolean CapNhatLaiMonAn(int mamon,String tenmon, String giatien){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(CreateDatabase.TB_MONAN_TENMONAN,tenmon);
+        contentValues.put(CreateDatabase.TB_MONAN_GIATIEN,giatien);
+
+        long kiemtra = database.update(CreateDatabase.TB_MONAN,contentValues,CreateDatabase.TB_MONAN_MAMON + " = '" + mamon + "'",null );
+
+        if(kiemtra !=0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

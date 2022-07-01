@@ -41,7 +41,15 @@ public class HienThiDanhSachMonAnFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == REQUEST_CODE_SUA){
             if(resultCode == Activity.RESULT_OK){
-
+                Intent intent = data;
+                boolean kiemtra = intent.getBooleanExtra("kiemtra",false);
+                HienThiDanhSachMonAn();
+                if(kiemtra){
+                    Toast.makeText(getActivity(), getResources().getString(R.string.suathanhcong), Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getActivity(), getResources().getString(R.string.loi), Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
@@ -59,7 +67,6 @@ public class HienThiDanhSachMonAnFragment extends Fragment {
                 intent.putExtra("mamon",mamon);
                 startActivityForResult(intent,REQUEST_CODE_SUA);
 
-                Toast.makeText(getActivity(), "mã món " +mamon, Toast.LENGTH_SHORT).show();
                 ;break;
 
             case R.id.itXoa:
